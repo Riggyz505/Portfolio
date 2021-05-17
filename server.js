@@ -2,33 +2,8 @@
 const express = require('express');
 var bodyParser = require('body-parser');
 var tedious = require('tedious');
-var CryptoJS = require("crypto-js");
 var readOnly = false;
-var hosted = true;
-
-//////////////////////////////////////////////////////////////////////////////// SQL CONFIGS AND CONNECTION
-var config = {
-    server: (hosted ? 'localhost' : '172.16.17.117'),
-    authentication: {
-        type: 'default',
-        options: {
-            userName: 'sa',
-            password: 'PurdueM3dic@l'
-        }
-    },
-    options: {
-        encrypt: false,
-        database: 'medicalRevisedDB',
-        rowCollectionOnRequestCompletion: true
-    }
-};
-
-var connection = new tedious.Connection(config);
-
-connection.on('connect', function (err) {
-    // If no error, then good to proceed.
-    console.log("Connected to SQL database");
-});
+var hosted = false;
 
 //////////////////////////////////////////////////////////////////////////////// SERVER HOMEPAGE AND STARTUP
 app = express();
@@ -51,52 +26,6 @@ app.get('/', function (req, res) {
 //////////////////////////////////////////////////////////////////////////////// SERVER READONLY SYSTEM
 app.post('/read_only', function (req, res) {
     res.send(readOnly);
-});
-
-//////////////////////////////////////////////////////////////////////////////// SERVER LOGIN SYSTEM
-app.post('/login_request', function (req, res) {
-    //store the data in the unencrypted form
-    var userId = req.body.id;
-    var userPasskey = CryptoJS.AES.decrypt(req.body.passkey, "Secret Passphrase").toString(CryptoJS.enc.Utf8);
-    //now each table must be checked for a match (Patient, Doctor, Insurance Company, etc)
-    requestPatient = new tedious.Request("SELECT PatientId FROM Patient WHERE (UserName = '" + userId + "') AND (Password = '" + userPasskey + "');", function (err, rowCount, rows) {
-        //assume that if it returns a row than they logged in
-        if (rows[0] != undefined) {
-            res.send("/patient?userKey=" + rows[0][0].value);
-        } else {
-            //need to check other login types here
-            requestGovernment = new tedious.Request("SELECT GovOfficialId FROM Government_Official WHERE (UserName = '" + userId + "') AND (Password = '" + userPasskey + "');", function (err, rowCount, rows) {
-                //assume that if it returns a row than they logged in
-                if (rows[0] != undefined) {
-                    res.send("/government?userKey=" + rows[0][0].value);
-                } else {
-                    //check the insurance companies now
-                    requestInsurance = new tedious.Request("SELECT InsuranceCompanyId FROM Insurance_Company WHERE (UserName = '" + userId + "') AND (Password = '" + userPasskey + "');", function (err, rowCount, rows) {
-                        //assume that if it returns a row than they logged in
-                        if (rows[0] != undefined) {
-                            res.send("/insurance?userKey=" + rows[0][0].value);
-                        } else {
-                            //check the last set of doctors
-                            requestDoctor = new tedious.Request("SELECT DoctorId FROM Doctor WHERE (UserName = '" + userId + "') AND (Password = '" + userPasskey + "');", function (err, rowCount, rows) {
-                                //assume that if it returns a row than they logged in
-                                if (rows[0] != undefined) {
-                                    //case statement to go through the patient access level
-                                    res.send("/doctor?userKey=" + rows[0][0].value);
-                                } else {
-                                    //now go back
-                                    res.send("/?failed=true");
-                                }
-                            });
-                            connection.execSql(requestDoctor);
-                        }
-                    });
-                    connection.execSql(requestInsurance);
-                }
-            });
-            connection.execSql(requestGovernment);
-        }
-    });
-    connection.execSql(requestPatient);
 });
 
 //////////////////////////////////////////////////////////////////////////////// SERVER DATABASE PAGE

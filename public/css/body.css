@@ -1,0 +1,9 @@
+/* Body only content */
+body{
+    margin: 0px;
+    font-family: 'Proxima Nova Semibold';
+    background-color: rgb(30, 30, 30);
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+}
