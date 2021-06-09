@@ -1,9 +1,26 @@
+/* CSS HEX 
+--eerie-black: #262626ff;
+--feldgrau: #586462ff;
+--morning-blue: #8aa29eff;
+--silver-sand: #bec8c6ff;
+--isabelline: #f1edeeff;
+--prussian-blue: #0f3460ff;
+--paradise-pink: #e94560ff;
+*/
+
+
 /* Body only content */
-body{
+body {
     margin: 0px;
     font-family: 'Proxima Nova Semibold';
     background-color: rgb(30, 30, 30);
     overflow: hidden;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
+}
+
+
+body {
+    overflow: scroll;
+    overflow-x: hidden;
 }

@@ -4,6 +4,7 @@ var bodyParser = require('body-parser');
 var tedious = require('tedious');
 var readOnly = false;
 var hosted = false;
+var port = 3000;
 
 //////////////////////////////////////////////////////////////////////////////// SERVER HOMEPAGE AND STARTUP
 app = express();
@@ -15,8 +16,8 @@ app.use(bodyParser.urlencoded({
 
 app.use(bodyParser.json());
 
-app.listen(80, function () {
-    console.log('Listening for website requests on port: 3000');
+app.listen(port, function () {
+    console.log('Listening for website requests on port: ' + port);
 });
 
 app.get('/', function (req, res) {
