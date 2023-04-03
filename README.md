@@ -1,10 +1,8 @@
 personal website
 
 
-[x]navbar handling
-
-page nav arrows
-on hover effects
-
-scrolling
-portfolio interactivity
+[x] navbar handling
+[x] scrolling
+[x] portfolio interactivity
+[x] submit button
+[] on hover effects

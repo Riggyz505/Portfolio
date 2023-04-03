@@ -8,33 +8,40 @@
     <title>My Portfolio</title>
 
     <link href="./styles.css" rel="stylesheet" type="text/css">
-    <script src="./script.js"></script>
 </head>
 
 <body>
+    <!-- NOTE: the submit flavor alert -->
+    <div id="flavor-alert">
+        Thanks for the message 🤩
+    </div>
+
+    <!-- NOTE: the navbar for the page -->
+    <nav id="site-nav">
+        <div>
+            <strong>Ethan Zeronik</strong>
+            <span>Software Engineer</span>
+        </div>
+
+        <button data-target="landing-page" class="js-nav-button">Home</button>
+    </nav>
+
     <!-- NOTE: the landing page -->
     <div class="page" id="landing-page">
         <nav id="landing-nav">
-            <a href="#about-me">About Me</a>
-            <a href="#resume">Resume</a>
-            <a href="#portfolio">Portfolio</a>
-            <a href="#contact-me">Contact</a>
+            <button data-target="about-me" class="js-nav-button">About Me</button>
+            <button data-target="resume" class="js-nav-button">Resume</button>
+            <button data-target="portfolio" class="js-nav-button">Portfolio</button>
+            <button data-target="contact-me" class="js-nav-button">Contact</button>
         </nav>
 
         <section id="landing-title">
             <h1>Ethan Zeronik</h1>
             <h2>Software Engineer</h2>
         </section>
+        
+        <div id="js-hover-effect"></div>
     </div>
-    <!-- NOTE: the navbar for the page -->
-    <nav class="site-nav">
-        <div>
-            <strong>Ethan Zeronik</strong>
-            <span>Software Engineer</span>
-        </div>
-
-        <a href="#landing-page">Home</a>
-    </nav>
 
     <main class="page">
         <!-- NOTE: a simple about me page -->
@@ -60,11 +67,15 @@
             </p>
         </section>
 
+        <div class="gutter"></div>
+
         <!-- NOTE: a page for browsing the resume, will make better in the future -->
         <section id="resume" class="content">
             <h2>Resume</h2>
             <iframe src="./resources/Resume.pdf#toolbar=0"></iframe>
         </section>
+
+        <div class="gutter"></div>
 
         <!-- NOTE: a grid of all projects in my portfolio -->
         <section id="portfolio" class="content">
@@ -120,11 +131,8 @@
                     </article>
                 </div>
             </div>
-        </section>
-
-        <section class="content">
-            <h2>Portfolio</h2>
             <div class="portfolio-alt">
+                <button id="js-exit-portfolio">&laquo</button>
                 <img src="./resources/worachat-sodsri-nCz_ZgnbtaE-unsplash.jpg">
                 <article>
                     <h3>Twofish</h3>
@@ -143,6 +151,8 @@
             </div>
         </section>
 
+        <div class="gutter"></div>
+
         <!-- NOTE: the "footer" of the site -->
         <section id="contact-me" class="content">
             <h2>Contact Me</h2>
@@ -153,14 +163,14 @@
                 social media through the links listed on this site. Looking forward to hearing from you!
             </p>
 
-            <form>
+            <form action="#" onsubmit="return false">
                 <label for="name">Name</label>
                 <input type="text" name="name" id="name" placeholder="Your name..">
 
                 <label for="subject">Subject</label>
                 <textarea id="subject" name="subject" placeholder="Write something.."></textarea>
 
-                <input type="submit">
+                <input id="js-submit" type="submit">
             </form>
 
             <div>
@@ -174,6 +184,9 @@
             </div>
         </section>
     </main>
+
+    <!-- NOTE: put script here to load all elements before run -->
+    <script src="./script.js"></script>
 </body>
 
 </html>
