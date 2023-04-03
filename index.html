@@ -8,6 +8,7 @@
     <title>My Portfolio</title>
 
     <link href="./styles.css" rel="stylesheet" type="text/css">
+    <script src="./script.js"></script>
 </head>
 
 <body>
@@ -25,18 +26,19 @@
             <h2>Software Engineer</h2>
         </section>
     </div>
-    <!-- NOTE: a simple about me page -->
-    <div class="page" id="about-me">
-        <nav class="site-nav">
-            <div>
-                <strong>Ethan Zeronik</strong>
-                <span>Software Engineer</span>
-            </div>
+    <!-- NOTE: the navbar for the page -->
+    <nav class="site-nav">
+        <div>
+            <strong>Ethan Zeronik</strong>
+            <span>Software Engineer</span>
+        </div>
 
-            <a href="#landing-page">Home</a>
-        </nav>
+        <a href="#landing-page">Home</a>
+    </nav>
 
-        <section class="content">
+    <main class="page">
+        <!-- NOTE: a simple about me page -->
+        <section id="about-me" class="content">
             <h2>About Me</h2>
             <p>
                 Hi there 🤝 my name is Ethan Zeronik. Always learning, I love to try exciting new technologies. Whether
@@ -57,35 +59,15 @@
                 <strong>Heritage Christian:</strong> 2006-2019, Highschool diploma
             </p>
         </section>
-    </div>
-    <!-- NOTE: a page for brwosing the resume, will make better in the future -->
-    <div class="page" id="resume">
-        <nav class="site-nav">
-            <div>
-                <strong>Ethan Zeronik</strong>
-                <span>Software Engineer</span>
-            </div>
 
-            <a href="#landing-page">Home</a>
-        </nav>
-
-        <section class="content">
+        <!-- NOTE: a page for browsing the resume, will make better in the future -->
+        <section id="resume" class="content">
             <h2>Resume</h2>
             <iframe src="./resources/Resume.pdf#toolbar=0"></iframe>
         </section>
-    </div>
-    <!-- NOTE: a grid of all projects in my portfolio -->
-    <div class="page" id="portfolio">
-        <nav class="site-nav">
-            <div>
-                <strong>Ethan Zeronik</strong>
-                <span>Software Engineer</span>
-            </div>
 
-            <a href="#landing-page">Home</a>
-        </nav>
-
-        <section class="content">
+        <!-- NOTE: a grid of all projects in my portfolio -->
+        <section id="portfolio" class="content">
             <h2>Portfolio</h2>
             <div class="portfolio-grid">
                 <div class="grid-item">
@@ -139,16 +121,6 @@
                 </div>
             </div>
         </section>
-    </div>
-    <div class="page">
-        <nav class="site-nav">
-            <div>
-                <strong>Ethan Zeronik</strong>
-                <span>Software Engineer</span>
-            </div>
-
-            <a href="#landing-page">Home</a>
-        </nav>
 
         <section class="content">
             <h2>Portfolio</h2>
@@ -170,19 +142,9 @@
                 </article>
             </div>
         </section>
-    </div>
-    <!-- NOTE: the "footer" of the site -->
-    <div class="page" id="contact-me">
-        <nav class="site-nav">
-            <div>
-                <strong>Ethan Zeronik</strong>
-                <span>Software Engineer</span>
-            </div>
 
-            <a href="#landing-page">Home</a>
-        </nav>
-
-        <section class="content">
+        <!-- NOTE: the "footer" of the site -->
+        <section id="contact-me" class="content">
             <h2>Contact Me</h2>
             <p>
                 Hey there! Thanks for stopping by my website! 👋 I'm super excited to share my work with you. If you
@@ -211,7 +173,7 @@
                 <a href="mailto:ejzeronik@gmail.com">Email</a>
             </div>
         </section>
-    </div>
+    </main>
 </body>
 
 </html>
