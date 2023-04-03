@@ -5,4 +5,4 @@ personal website
 [x] scrolling
 [x] portfolio interactivity
 [x] submit button
-[] on hover effects
+[x] on hover effects

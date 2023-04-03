@@ -122,7 +122,7 @@ main {
 #js-hover-effect {
     position: absolute;
     z-index: 0;
-    height: 250px;
+    height: 20vmax;
     aspect-ratio: 1;
 
     /* background-color: white; */
@@ -130,13 +130,23 @@ main {
     background-size: 500%;
     border-radius: 50%;
 
-    filter: invert() hue-rotate(180deg) brightness(.90);
-    
+    filter: invert() brightness(.90);
+
     left: 50%;
     top: 50%;
     translate: -50% -50%;
 }
 
+#hover-effect-blur {
+    top: 0px;
+
+    height: 100%;
+    width: 100%;
+    position: absolute;
+
+    z-index: 2;
+    backdrop-filter: blur(1vmax);
+}
 
 
 #landing-page {

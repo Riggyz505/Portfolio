@@ -113,5 +113,5 @@ window.onpointermove = event => {
         left: `${clientX + window.scrollX}px`,
         top: `${clientY + window.scrollY}px`,
         backgroundPosition: `${-clientX + window.scrollX}px ${-clientY + window.scrollY}px`
-    }, { duration: 3000, fill: "forwards" });
+    }, { duration: 1000, fill: "forwards" });
 }
