@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>My Portfolio</title>
+
+    <link href="./styles.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <!-- NOTE: the landing page -->
+    <div class="page" id="landing-page">
+        <nav id="landing-nav">
+            <a href="#about-me">About Me</a>
+            <a href="#resume">Resume</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#contact-me">Contact</a>
+        </nav>
+
+        <section id="landing-title">
+            <h1>Ethan Zeronik</h1>
+            <h2>Software Engineer</h2>
+        </section>
+    </div>
+    <!-- NOTE: a simple about me page -->
+    <div class="page" id="about-me">
+        <nav class="site-nav">
+            <div>
+                <strong>Ethan Zeronik</strong>
+                <span>Software Engineer</span>
+            </div>
+
+            <a href="#landing-page">Home</a>
+        </nav>
+
+        <section class="content">
+            <h2>About Me</h2>
+            <p>
+                Hi there 🤝 my name is Ethan Zeronik. Always learning, I love to try exciting new technologies. Whether
+                it is a new microcontroller or a backend framework that provides better performance, I am always
+                striving to learn about the next big thing. I like to spend my free time assembling Gunpla models or 3d
+                printing various odds and ends. I am passionate about always doing the best I can, both in professional
+                and personal pursuits.
+            </p>
+            <h3>Skills</h3>
+            <p>
+                Typescript, Javascript, Git, C, C#, Powershell, SQL
+            </p>
+            <h3>Education</h3>
+            <p>
+                <strong>Purdue University:</strong> 2019-2023, Bachelors in CNIT with a general specification
+                <br>
+                <br>
+                <strong>Heritage Christian:</strong> 2006-2019, Highschool diploma
+            </p>
+        </section>
+    </div>
+    <!-- NOTE: a page for brwosing the resume, will make better in the future -->
+    <div class="page" id="resume">
+        <nav class="site-nav">
+            <div>
+                <strong>Ethan Zeronik</strong>
+                <span>Software Engineer</span>
+            </div>
+
+            <a href="#landing-page">Home</a>
+        </nav>
+
+        <section class="content">
+            <h2>Resume</h2>
+            <iframe src="./resources/Resume.pdf#toolbar=0"></iframe>
+        </section>
+    </div>
+    <!-- NOTE: a grid of all projects in my portfolio -->
+    <div class="page" id="portfolio">
+        <nav class="site-nav">
+            <div>
+                <strong>Ethan Zeronik</strong>
+                <span>Software Engineer</span>
+            </div>
+
+            <a href="#landing-page">Home</a>
+        </nav>
+
+        <section class="content">
+            <h2>Portfolio</h2>
+            <div class="portfolio-grid">
+                <div class="grid-item">
+                    <img src="./resources/worachat-sodsri-nCz_ZgnbtaE-unsplash.jpg">
+                    <article>
+                        <h3>Twofish</h3>
+                        <p>Final project for the Purdue CNIT 370 class</p>
+                    </article>
+                </div>
+
+                <div class="grid-item">
+                    <img src="./resources/lorenzo-herrera-p0j-mE6mGo4-unsplash.jpg">
+                    <article>
+                        <h3>EZpowershell</h3>
+                        <p>A pwsh module made to be a collection of small but useful scripts for various Azure and admin
+                            tasks.</p>
+                    </article>
+                </div>
+
+                <div class="grid-item">
+                    <img src="./resources/zan-wGqz5YSqsfk-unsplash.jpg">
+                    <article>
+                        <h3>Mesh Pico</h3>
+                        <p>A small project designed to be used for development of an IOT embedded device</p>
+                    </article>
+                </div>
+
+                <div class="grid-item">
+                    <img src="./resources/62a07b53139aec4c1fd07771_discord-logo.png">
+                    <article>
+                        <h3>et-manager-bot</h3>
+                        <p>A discord enterprise integration bot</p>
+                    </article>
+                </div>
+
+                <div class="grid-item">
+                    <img src="./resources/randy-fath-G1yhU1Ej-9A-unsplash.jpg">
+                    <article>
+                        <h3>Ultra Chess</h3>
+                        <p>Chess game made in Python</p>
+                    </article>
+                </div>
+
+                <div class="grid-item">
+                    <img src="./resources/andres-urena-tsBropDpnwE-unsplash.jpg">
+                    <article>
+                        <h3>AlexaLiquidPixel</h3>
+                        <p>This is a project where I use my Liquid Pixel lights and have them controlled by an Amazon
+                            Alexa</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="page">
+        <nav class="site-nav">
+            <div>
+                <strong>Ethan Zeronik</strong>
+                <span>Software Engineer</span>
+            </div>
+
+            <a href="#landing-page">Home</a>
+        </nav>
+
+        <section class="content">
+            <h2>Portfolio</h2>
+            <div class="portfolio-alt">
+                <img src="./resources/worachat-sodsri-nCz_ZgnbtaE-unsplash.jpg">
+                <article>
+                    <h3>Twofish</h3>
+                    <div>
+                        <span>encryption</span>
+                        <span>javascript</span>
+                        <span>typescript</span>
+                        <span>astro</span>
+                        <span>twofish</span>
+                    </div>
+                    <p>
+                        This is a demo website built to show what the twofish block cipher does to data.
+                    </p>
+                    <a href="https://twofish.ethanzeronik.dev">Live Demo</a>
+                </article>
+            </div>
+        </section>
+    </div>
+    <!-- NOTE: the "footer" of the site -->
+    <div class="page" id="contact-me">
+        <nav class="site-nav">
+            <div>
+                <strong>Ethan Zeronik</strong>
+                <span>Software Engineer</span>
+            </div>
+
+            <a href="#landing-page">Home</a>
+        </nav>
+
+        <section class="content">
+            <h2>Contact Me</h2>
+            <p>
+                Hey there! Thanks for stopping by my website! 👋 I'm super excited to share my work with you. If you
+                have any questions, comments, or just want to chat, feel free to drop me a line using the contact form
+                below. I'll do my best to get back to you as soon as possible. You can also connect with me on
+                social media through the links listed on this site. Looking forward to hearing from you!
+            </p>
+
+            <form>
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name" placeholder="Your name..">
+
+                <label for="subject">Subject</label>
+                <textarea id="subject" name="subject" placeholder="Write something.."></textarea>
+
+                <input type="submit">
+            </form>
+
+            <div>
+                <a href="https://github.com/ejzeronimo">Github</a>
+                |
+                <a href="https://www.linkedin.com/in/ethanzeronik/">LinkedIn</a>
+                |
+                <a href="https://discordapp.com/users/210578280485617665">Discord</a>
+                |
+                <a href="mailto:ejzeronik@gmail.com">Email</a>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>

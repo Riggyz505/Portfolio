@@ -1,0 +1,329 @@
+body {
+    margin: 0;
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    /* https://colorhunt.co/palette/f9f7f7dbe2ef3f72af112d4e */
+    --color-primary: #3f72af;
+    --color-secondary: #112d4e;
+    --text-primary: #f9f7f7;
+    --text-secondary: #dbe2ef;
+
+    color: var(--text-primary);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--text-secondary);
+}
+
+/* this acts as a "virtual body" to make the website one page and seamless */
+.page {
+    height: 100vh;
+    width: 100%;
+
+    background-color: var(--color-secondary);
+}
+
+.content {
+    width: 70%;
+    height: calc(100% - 6em - 3.2em);
+    max-height: calc(100% - 6em - 3.2em);
+
+    padding: 3em;
+    margin: auto;
+}
+
+/* NOTE: temporary class for saite navigation, will only be one bar later */
+.site-nav {
+    width: 80%;
+    height: fit-content;
+
+    padding-left: 10%;
+    padding-right: 10%;
+
+    background: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)), var(--color-secondary);
+    background-blend-mode: darken;
+
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.site-nav>div {
+    padding: .8em;
+
+    line-height: 1.2em;
+}
+
+.site-nav>div>span {
+    color: var(--text-secondary);
+    font-size: .9em;
+
+    vertical-align: middle
+}
+
+.site-nav>div>strong {
+    font-size: 1.2em;
+
+    vertical-align: middle
+}
+
+.site-nav>a {
+    padding: .8em;
+
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: 1.1em;
+}
+
+.site-nav>a:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/* NOTE: the first page CSS */
+#landing-page {
+    background: var(--color-primary);
+    background: linear-gradient(0deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+}
+
+#landing-nav {
+    width: 35%;
+    min-width: fit-content;
+
+    margin: auto;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#landing-nav>a {
+    padding: .8em;
+
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: 1.1em;
+}
+
+#landing-nav>a:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+
+#landing-title {
+    position: absolute;
+    width: fit-content;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    text-align: center;
+}
+
+#landing-title>h1 {
+    margin: 0;
+
+    color: var(--text-primary);
+    font-size: 2.5em;
+}
+
+#landing-title>h2 {
+    margin: 0;
+
+    font-size: 1.3em;
+}
+
+/* NOTE: the resume page */
+#resume iframe {
+    aspect-ratio: .77;
+    height: calc(100% - 4.5em - 4px);
+
+    margin: auto;
+
+    display: block;
+}
+
+/* NOTE: the portforlio page */
+.portfolio-grid {
+    height: calc(100% - 4.5em);
+    max-height: calc(100% - 4.5em);
+
+    display: grid;
+    grid-template-rows: repeat(2, calc(50% - .5em));
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1em;
+}
+
+.grid-item {
+    display: flex;
+    flex-direction: column;
+
+    background: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)), var(--color-secondary);
+    background-blend-mode: darken;
+    border-radius: .5em;
+
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.grid-item>img {
+    width: 100%;
+    max-height: 58%;
+    flex-shrink: 5;
+
+    object-fit: cover;
+    border-radius: .5em .5em 0 0;
+}
+
+.grid-item>article {
+    flex-grow: 2;
+    height: fit-content;
+    min-height: 20%;
+
+    padding: .25em;
+
+    border: var(--color-primary) 1px solid;
+    border-top: 0px;
+    border-radius: 0 0 .5em .5em;
+}
+
+.grid-item>article>h3 {
+    margin: 0;
+}
+
+.grid-item>article>p {
+    height: calc(100% - 1.17em - .5em);
+
+    margin: 0;
+
+    overflow: hidden;
+}
+
+/* NOTE: alternate view of the portfolio */
+.portfolio-alt {
+    height: calc(100% - 4.5em);
+    max-height: calc(100% - 4.5em);
+
+    background: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)), var(--color-secondary);
+    background-blend-mode: darken;
+    border-radius: .5em;
+
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+    display: flex;
+    flex-direction: row;
+}
+
+.portfolio-alt>img {
+    width: 40%;
+    max-height: 100%;
+    flex-shrink: 5;
+
+    object-fit: cover;
+    border-radius: .5em 0 0 .5em;
+}
+
+.portfolio-alt>article {
+    flex-grow: 2;
+    height: calc(100% - 2em);
+
+    padding: 1em;
+
+    border: var(--color-primary) 1px solid;
+    border-left: 0px;
+    border-radius: 0 .5em .5em 0;
+}
+
+.portfolio-alt>article>div>span {
+    background-color: #3f72af55;
+
+    padding: .2em .5em .2em .5em;
+
+    border: var(--color-primary) 1px solid;
+    border-radius: .74em;
+}
+
+.portfolio-alt>article>div>span:hover {
+    background-color: #3f72af99;
+
+    cursor: default;
+}
+
+
+.portfolio-alt>article>a {
+    color: var(--text-primary);
+}
+
+.portfolio-alt>article>a:hover {
+    cursor: pointer;
+}
+
+/* NOTE: contact me form */
+#contact-me form {
+    width: 80%;
+
+    margin: auto;
+}
+
+#contact-me form>input[type=text],
+#contact-me form>textarea {
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 1em;
+    margin-top: 6px;
+    margin-bottom: 16px;
+
+    border: 1px solid var(--text-primary);
+    border-radius: .5em;
+    
+    resize: vertical;
+}
+
+#contact-me form>input[type=submit] {
+    background-color: var(--color-primary);
+
+    color: var(--text-primary);
+
+    padding: 1em;
+
+    border: none;
+    border-radius: .5em;
+
+    cursor: pointer;
+}
+
+#contact-me form>input[type=submit]:hover {
+    opacity: 80%;
+}
+
+#contact-me>section>div {
+    width: fit-content;
+
+    transform: translateY(800%);
+
+    margin-top: auto;
+    margin: auto;
+}
+
+#contact-me>section>div>a {
+    padding: .4em;
+
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: .9em;
+}
+
+#contact-me>section>div>a:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
