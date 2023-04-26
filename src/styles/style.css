@@ -45,7 +45,7 @@ main {
 #js-hover-effect {
     position: absolute;
     z-index: 0;
-    height: 30vmax;
+    height: 20vmax;
     aspect-ratio: 1;
 
     /* background-color: white; */

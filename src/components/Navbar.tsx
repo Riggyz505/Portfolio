@@ -31,8 +31,14 @@ export default function Navbar() {
 
         // lock opacity in place
         navbar.querySelector("#landing-nav")!.animate([
-            { opacity: "0" },
-            { opacity: "0" }
+            {
+                opacity: "0",
+                visibility: "hidden"
+            },
+            {
+                opacity: "0",
+                visibility: "hidden"
+            }
         ], {
             duration: totalFadeTime,
             easing: 'linear',
@@ -43,14 +49,17 @@ export default function Navbar() {
         navbar.querySelector("#site-nav")!.animate([
             {
                 opacity: "1",
+                visibility: "visible",
             },
             {
                 opacity: "1",
+                visibility: "visible",
                 background: "none",
                 boxShadow: "none",
             },
             {
                 opacity: "0",
+                visibility: "hidden",
                 background: "none",
                 boxShadow: "none",
                 width: "40%",
@@ -69,8 +78,14 @@ export default function Navbar() {
 
         // lock opacity in place
         navbar.querySelector("#landing-nav")!.animate([
-            { opacity: "0" },
-            { opacity: "0" }
+            {
+                opacity: "0",
+                visibility: "hidden"
+            },
+            {
+                opacity: "0",
+                visibility: "hidden"
+            }
         ], {
             duration: totalFadeTime,
             easing: 'linear',
@@ -81,6 +96,7 @@ export default function Navbar() {
         navbar.querySelector("#site-nav")!.animate([
             {
                 opacity: "0",
+                visibility: "hidden",
                 background: "none",
                 boxShadow: "none",
                 width: "40%",
@@ -88,11 +104,13 @@ export default function Navbar() {
             },
             {
                 opacity: "1",
+                visibility: "visible",
                 background: "none",
                 boxShadow: "none",
             },
             {
                 opacity: "1",
+                visibility: "visible",
             }
         ], {
             duration: totalFadeTime * .9,
@@ -144,7 +162,7 @@ export default function Navbar() {
 
     return <nav style={!isFloating ? { top: offset + "px" } : {}} ref={selfRef}>
         {/* show this on the landing page */}
-        <div id="landing-nav" style={isFloating ? { opacity: 0, visibility : "hidden" } : { opacity: 1, visibility : "visible" }}>
+        <div id="landing-nav" style={isFloating ? { opacity: 0, visibility: "hidden" } : { opacity: 1, visibility: "visible" }}>
             <button className="js-nav-button" onClick={() => navigateTo("about-me")}>About Me</button>
             <button className="js-nav-button" onClick={() => navigateTo("resume")}>Resume</button>
             <button className="js-nav-button" onClick={() => navigateTo("portfolio")}>Portfolio</button>
@@ -152,7 +170,7 @@ export default function Navbar() {
         </div>
 
         {/* show this everywhere else */}
-        <div id="site-nav" style={isFloating ? { opacity: 1, visibility : "visible" } : { opacity: 0, visibility : "hidden" }}>
+        <div id="site-nav" style={isFloating ? { opacity: 1, visibility: "visible" } : { opacity: 0, visibility: "hidden" }}>
             <div>
                 <strong>Ethan Zeronik</strong>
                 <span>Software Engineer</span>

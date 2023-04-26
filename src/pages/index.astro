@@ -30,6 +30,7 @@ import imagePath6 from "../resources/andres-urena-tsBropDpnwE-unsplash.jpg";
 			<h2>Software Engineer</h2>
 		</section>
 
+		<!-- TODO: uncomment to see weird effect -->
 		<!-- <div id="hover-effect-blur"></div>
         <div id="js-hover-effect"></div> -->
 	</div>
@@ -147,7 +148,7 @@ import imagePath6 from "../resources/andres-urena-tsBropDpnwE-unsplash.jpg";
 						This is a demo website built to show what the twofish
 						block cipher does to data.
 					</p>
-					<a href="https://twofish.ethanzeronik.dev">Live Demo</a>
+					<a href="https://twofish.ethanzeronik.dev" target="_blank">Live Demo</a>
 				</article>
 			</div>
 		</section>
@@ -170,15 +171,13 @@ import imagePath6 from "../resources/andres-urena-tsBropDpnwE-unsplash.jpg";
 			<ContactForm client:load client:only />
 
 			<div>
-				<a href="https://github.com/ejzeronimo">Github</a>
+				<a href="https://github.com/ejzeronimo" target="_blank">Github</a>
 				|
-				<a href="https://www.linkedin.com/in/ethanzeronik/">LinkedIn</a>
+				<a href="https://www.linkedin.com/in/ethanzeronik/" target="_blank">LinkedIn</a>
 				|
-				<a href="https://discordapp.com/users/210578280485617665"
-					>Discord</a
-				>
+				<a href="https://discordapp.com/users/210578280485617665" target="_blank">Discord</a>
 				|
-				<a href="mailto:ejzeronik@gmail.com">Email</a>
+				<a href="mailto:ejzeronik@gmail.com" target="_blank">Email</a>
 			</div>
 		</section>
 	</main>
@@ -207,13 +206,15 @@ import imagePath6 from "../resources/andres-urena-tsBropDpnwE-unsplash.jpg";
 		gridItems[i].addEventListener("click", toggleAltView);
 	}
 
+	altBackButton!.addEventListener("click", toggleGridView);
+
 	// NOTE: the landing page effect
 	const blob = document.getElementById("js-hover-effect");
 
 	window.onpointermove = (event) => {
 		const { clientX, clientY } = event;
 
-		blob.animate(
+		blob!.animate(
 			{
 				left: `${clientX + window.scrollX}px`,
 				top: `${clientY + window.scrollY}px`,
