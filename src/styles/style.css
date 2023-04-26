@@ -1,0 +1,328 @@
+body {
+    margin: 0;
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    /* https://colorhunt.co/palette/f9f7f7dbe2ef3f72af112d4e */
+    --color-primary: #3f72af;
+    --color-secondary: #112d4e;
+    --text-primary: #f9f7f7;
+    --text-secondary: #dbe2ef;
+
+    color: var(--text-primary);
+    background-color: var(--color-secondary);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--text-secondary);
+}
+
+/* this acts as a "virtual body" to make the website one page and seamless */
+main {
+    width: 70%;
+
+    padding: 4em 0 2em;
+
+    margin: auto;
+}
+
+.content {
+    width: 100%;
+}
+
+.gutter {
+    display: block;
+    width: 70%;
+    margin: 3em auto;
+    border-top: 1px solid var(--color-primary);
+}
+
+#flavor-alert {
+    visibility: hidden;
+    opacity: 0;
+
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background-color: var(--color-primary);
+    border-radius: 1em;
+    padding: 1em;
+
+    z-index: 10;
+
+    position: fixed;
+    top: 2em;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+
+
+/* NOTE: the first page CSS */
+#js-hover-effect {
+    position: absolute;
+    z-index: 0;
+    height: 20vmax;
+    aspect-ratio: 1;
+
+    /* background-color: white; */
+    background: url(resources/1538174404.svg);
+    background-size: 500%;
+    border-radius: 50%;
+
+    filter: invert() brightness(.90);
+
+    left: 50%;
+    top: 50%;
+    translate: -50% -50%;
+}
+
+#hover-effect-blur {
+    top: 0px;
+
+    height: 100%;
+    width: 100%;
+    position: absolute;
+
+    z-index: 2;
+    backdrop-filter: blur(1vmax);
+}
+
+
+#landing-page {
+    height: 100vh;
+    width: 100%;
+
+    position: relative;
+    overflow: hidden;
+
+    background: var(--color-primary);
+    background: linear-gradient(0deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+}
+
+
+#landing-title {
+    z-index: 9;
+
+    position: absolute;
+    width: fit-content;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    text-align: center;
+}
+
+#landing-title>h1 {
+    margin: 0;
+
+    color: var(--text-primary);
+    font-size: 2.5em;
+}
+
+#landing-title>h2 {
+    margin: 0;
+
+    font-size: 1.3em;
+}
+
+/* NOTE: the resume page */
+#resume iframe {
+    aspect-ratio: .77;
+    width: 100%;
+
+    margin: auto;
+
+    display: block;
+}
+
+/* NOTE: the portforlio page */
+.portfolio-grid {
+    height: calc(100vh - 8.5em);
+    max-height: calc(100vh - 8.5em);
+
+    display: grid;
+    grid-template-rows: repeat(2, calc(50% - .5em));
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1em;
+}
+
+.grid-item {
+    display: flex;
+    flex-direction: column;
+
+    background: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)), var(--color-secondary);
+    background-blend-mode: darken;
+    border-radius: .5em;
+
+    cursor: pointer;
+
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.grid-item>img {
+    width: 100%;
+    max-height: 58%;
+    flex-shrink: 5;
+
+    object-fit: cover;
+    border-radius: .5em .5em 0 0;
+}
+
+.grid-item>article {
+    flex-grow: 2;
+    height: fit-content;
+    min-height: 20%;
+
+    padding: .25em;
+
+    border: var(--color-primary) 1px solid;
+    border-top: 0px;
+    border-radius: 0 0 .5em .5em;
+}
+
+.grid-item>article>h3 {
+    margin: 0;
+}
+
+.grid-item>article>p {
+    height: calc(100% - 1.17em - .5em);
+
+    margin: 0;
+
+    overflow: hidden;
+}
+
+/* NOTE: alternate view of the portfolio */
+.portfolio-alt {
+    height: calc(100vh - 8.5em);
+    max-height: calc(100vh - 8.5em);
+    position: relative;
+
+    background: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)), var(--color-secondary);
+    background-blend-mode: darken;
+    border-radius: .5em;
+
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+    /* display: flex; */
+    flex-direction: row;
+
+    display: none;
+}
+
+.portfolio-alt>button {
+    position: absolute;
+
+    top: 1em;
+    left: 1em;
+}
+
+.portfolio-alt>img {
+    width: 40%;
+    max-height: 100%;
+    flex-shrink: 5;
+
+    object-fit: cover;
+    border-radius: .5em 0 0 .5em;
+}
+
+.portfolio-alt>article {
+    flex-grow: 2;
+    height: calc(100% - 2em);
+
+    padding: 1em;
+
+    border: var(--color-primary) 1px solid;
+    border-left: 0px;
+    border-radius: 0 .5em .5em 0;
+}
+
+.portfolio-alt>article>div>span {
+    background-color: #3f72af55;
+
+    padding: .2em .5em .2em .5em;
+
+    border: var(--color-primary) 1px solid;
+    border-radius: .74em;
+}
+
+.portfolio-alt>article>div>span:hover {
+    background-color: #3f72af99;
+
+    cursor: default;
+}
+
+
+.portfolio-alt>article>a {
+    color: var(--text-primary);
+}
+
+.portfolio-alt>article>a:hover {
+    cursor: pointer;
+}
+
+/* NOTE: contact me form */
+#contact-me form {
+    width: 80%;
+
+    margin: auto;
+}
+
+#contact-me form>input[type=text],
+#contact-me form>textarea {
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 1em;
+    margin-top: 6px;
+    margin-bottom: 16px;
+
+    border: 1px solid var(--text-primary);
+    border-radius: .5em;
+
+    resize: vertical;
+}
+
+#contact-me form>input[type=submit] {
+    background-color: var(--color-primary);
+
+    color: var(--text-primary);
+
+    padding: 1em;
+
+    border: none;
+    border-radius: .5em;
+
+    cursor: pointer;
+}
+
+#contact-me form>input[type=submit]:hover {
+    opacity: 80%;
+}
+
+#contact-me div {
+    width: fit-content;
+
+    /* transform: translateY(800%); */
+
+    margin-top: auto;
+    margin: auto;
+}
+
+#contact-me div>a {
+    padding: .4em;
+
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: .9em;
+}
+
+#contact-me div>a:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
