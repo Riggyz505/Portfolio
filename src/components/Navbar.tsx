@@ -2,6 +2,14 @@ import React, { useState, useEffect, useRef } from 'react';
 
 import "../styles/navbar.css"
 
+function navigateTo(target: string) {
+    document.getElementById(target)!.scrollIntoView({
+        behavior: "smooth",
+    });
+
+    return undefined;
+}
+
 export default function Navbar() {
     const [isFloating, setFloating] = useState(false);
     const [offset, setOffset] = useState(0);
@@ -100,10 +108,8 @@ export default function Navbar() {
         const visibleObserver = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
-                    console.log("the man is saved");
                     setFloating(false);
                 } else {
-                    console.log("a man has fallen in lego city");
                     setFloating(true);
                 }
             });
@@ -138,21 +144,21 @@ export default function Navbar() {
 
     return <nav style={!isFloating ? { top: offset + "px" } : {}} ref={selfRef}>
         {/* show this on the landing page */}
-        <div id="landing-nav" style={isFloating ? { opacity: 0 } : { opacity: 1 }}>
-            <button className="js-nav-button">About Me</button>
-            <button className="js-nav-button">Resume</button>
-            <button className="js-nav-button">Portfolio</button>
-            <button className="js-nav-button">Contact</button>
+        <div id="landing-nav" style={isFloating ? { opacity: 0, visibility : "hidden" } : { opacity: 1, visibility : "visible" }}>
+            <button className="js-nav-button" onClick={() => navigateTo("about-me")}>About Me</button>
+            <button className="js-nav-button" onClick={() => navigateTo("resume")}>Resume</button>
+            <button className="js-nav-button" onClick={() => navigateTo("portfolio")}>Portfolio</button>
+            <button className="js-nav-button" onClick={() => navigateTo("contact-me")}>Contact</button>
         </div>
 
         {/* show this everywhere else */}
-        <div id="site-nav" style={isFloating ? { opacity: 1 } : { opacity: 0 }}>
+        <div id="site-nav" style={isFloating ? { opacity: 1, visibility : "visible" } : { opacity: 0, visibility : "hidden" }}>
             <div>
                 <strong>Ethan Zeronik</strong>
                 <span>Software Engineer</span>
             </div>
 
-            <button data-target="landing-page" className="js-nav-button">Home</button>
+            <button className="js-nav-button" onClick={() => navigateTo("landing-page")}>Home</button>
         </div>
     </nav>
 }

@@ -68,6 +68,8 @@ nav {
     color: var(--text-secondary);
     font-size: .9em;
 
+    padding-left: .3em;
+
     vertical-align: middle
 }
 
