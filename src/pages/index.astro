@@ -6,7 +6,14 @@ import Viewer from "../components/Viewer";
 import ContactForm from "../components/ContactForm";
 
 import "../styles/style.css";
-import foo from "../resources/Resume.pdf";
+import resumePath from "../resources/Resume.pdf";
+
+import imagePath1 from "../resources/worachat-sodsri-nCz_ZgnbtaE-unsplash.jpg";
+import imagePath2 from "../resources/lorenzo-herrera-p0j-mE6mGo4-unsplash.jpg";
+import imagePath3 from "../resources/zan-wGqz5YSqsfk-unsplash.jpg";
+import imagePath4 from "../resources/62a07b53139aec4c1fd07771_discord-logo.png";
+import imagePath5 from "../resources/randy-fath-G1yhU1Ej-9A-unsplash.jpg";
+import imagePath6 from "../resources/andres-urena-tsBropDpnwE-unsplash.jpg";
 ---
 
 <Layout title="My Portfolio">
@@ -58,12 +65,92 @@ import foo from "../resources/Resume.pdf";
 		<!-- NOTE: a page for browsing the resume, will make better in the future -->
 		<section id="resume" class="content">
 			<h2>Resume</h2>
-			<Viewer src={foo} client:load />
+			<Viewer src={resumePath} client:load />
 		</section>
 
 		<span class="gutter"></span>
 
-		TODO: put stuff here
+		<!-- NOTE: a grid of all projects in my portfolio -->
+		<section id="portfolio" class="content">
+			<h2>Portfolio</h2>
+			<div class="portfolio-grid">
+				<div class="grid-item">
+					<img src={imagePath1} />
+					<article>
+						<h3>Twofish</h3>
+						<p>Final project for the Purdue CNIT 370 class</p>
+					</article>
+				</div>
+
+				<div class="grid-item">
+					<img src={imagePath2} />
+					<article>
+						<h3>EZpowershell</h3>
+						<p>
+							A pwsh module made to be a collection of small but
+							useful scripts for various Azure and admin tasks.
+						</p>
+					</article>
+				</div>
+
+				<div class="grid-item">
+					<img src={imagePath3} />
+					<article>
+						<h3>Mesh Pico</h3>
+						<p>
+							A small project designed to be used for development
+							of an IOT embedded device
+						</p>
+					</article>
+				</div>
+
+				<div class="grid-item">
+					<img src={imagePath4} />
+					<article>
+						<h3>et-manager-bot</h3>
+						<p>A discord enterprise integration bot</p>
+					</article>
+				</div>
+
+				<div class="grid-item">
+					<img src={imagePath5} />
+					<article>
+						<h3>Ultra Chess</h3>
+						<p>Chess game made in Python</p>
+					</article>
+				</div>
+
+				<div class="grid-item">
+					<img src={imagePath6} />
+					<article>
+						<h3>AlexaLiquidPixel</h3>
+						<p>
+							This is a project where I use my Liquid Pixel lights
+							and have them controlled by an Amazon Alexa
+						</p>
+					</article>
+				</div>
+			</div>
+			<div class="portfolio-alt">
+				<button id="js-exit-portfolio">&laquo</button>
+				<img src={imagePath1} />
+				<article>
+					<h3>Twofish</h3>
+					<div>
+						<span>encryption</span>
+						<span>javascript</span>
+						<span>typescript</span>
+						<span>astro</span>
+						<span>twofish</span>
+					</div>
+					<p>
+						This is a demo website built to show what the twofish
+						block cipher does to data.
+					</p>
+					<a href="https://twofish.ethanzeronik.dev">Live Demo</a>
+				</article>
+			</div>
+		</section>
 
 		<span class="gutter"></span>
 
@@ -96,3 +183,45 @@ import foo from "../resources/Resume.pdf";
 		</section>
 	</main>
 </Layout>
+
+<script>
+	// NOTE: button to smoothly animate to tag
+	var gridItems = document.getElementsByClassName("grid-item");
+	var altBackButton = document.getElementById("js-exit-portfolio");
+
+	function toggleAltView() {
+		document.getElementsByClassName("portfolio-grid")[0].style.display =
+			"none";
+		document.getElementsByClassName("portfolio-alt")[0].style.display =
+			"flex";
+	}
+
+	function toggleGridView() {
+		document.getElementsByClassName("portfolio-grid")[0].style.display =
+			"grid";
+		document.getElementsByClassName("portfolio-alt")[0].style.display =
+			"none";
+	}
+
+	for (let i = 0; i < gridItems.length; i++) {
+		gridItems[i].addEventListener("click", toggleAltView);
+	}
+
+	// NOTE: the landing page effect
+	const blob = document.getElementById("js-hover-effect");
+
+	window.onpointermove = (event) => {
+		const { clientX, clientY } = event;
+
+		blob.animate(
+			{
+				left: `${clientX + window.scrollX}px`,
+				top: `${clientY + window.scrollY}px`,
+				backgroundPosition: `${-clientX + window.scrollX}px ${
+					-clientY + window.scrollY
+				}px`,
+			},
+			{ duration: 1000, fill: "forwards" }
+		);
+	};
+</script>
