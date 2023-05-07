@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, BaseSyntheticEvent } from 'react';
 import PortfolioCard from './PortfolioCard';
 
-import style from "../styles/portfolio.css"
+import "../styles/portfolio.css"
 
 // gets the repos raw data
 import backupRepoData from "../resources/data.json"

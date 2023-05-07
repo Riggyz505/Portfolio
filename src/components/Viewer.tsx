@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-import style from "../styles/viewer.css"
+import "../styles/viewer.css"
 
 export default function Viewer(props: { src: string }) {
     return <div>

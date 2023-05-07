@@ -1,8 +1,7 @@
 import type React from 'react';
 import type { useState, useEffect, useRef, FormEvent } from 'react';
 
-import style from "../styles/contactForm.css"
-
+import "../styles/contactForm.css"
 
 
 export default function ContactForm(props: { alert: string }) {

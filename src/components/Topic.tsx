@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-import style from "../styles/topic.css"
+import "../styles/topic.css"
 
 export default function Topic(props: {
     title: string,

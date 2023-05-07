@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-import style from "../styles/navbar.css"
+import "../styles/navbar.css"
+
 
 function navigateTo(target: string) {
     document.getElementById(target)!.scrollIntoView({
