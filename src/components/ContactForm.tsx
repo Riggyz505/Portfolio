@@ -1,7 +1,7 @@
 import type React from 'react';
 import type { useState, useEffect, useRef, FormEvent } from 'react';
 
-import "../styles/contactForm.css"
+import style from "../styles/contactForm.css"
 
 
 

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Topic from './Topic';
-import "../styles/portfolioCard.css"
+
+import style from "../styles/portfolioCard.css"
 
 
 export default function PortfolioCard(props: {
