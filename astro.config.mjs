@@ -8,8 +8,6 @@ export default defineConfig({
   vite: {
     build: {
       rollupOptions: {
-        input: "index.js",
-        output: { file: "dist/index.js", format: "esm" },
         plugins: [css()],
       },
     },
