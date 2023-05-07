@@ -23,7 +23,7 @@ h6 {
 
 /* this acts as a "virtual body" to make the website one page and seamless */
 main {
-    width: 70%;
+    width: 60%;
 
     padding: 4em 0 2em;
 
@@ -36,7 +36,7 @@ main {
 
 .gutter {
     display: block;
-    width: 70%;
+    width: 90%;
     margin: 3em auto;
     border-top: 1px solid var(--color-primary);
 }
@@ -110,134 +110,6 @@ main {
     font-size: 1.3em;
 }
 
-
-
-/* NOTE: the portforlio page */
-.portfolio-grid {
-    height: calc(100vh - 8.5em);
-    max-height: calc(100vh - 8.5em);
-
-    display: grid;
-    grid-template-rows: repeat(2, calc(50% - .5em));
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1em;
-}
-
-.grid-item {
-    display: flex;
-    flex-direction: column;
-
-    background: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)), var(--color-secondary);
-    background-blend-mode: darken;
-    border-radius: .5em;
-
-    cursor: pointer;
-
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-}
-
-.grid-item>img {
-    width: 100%;
-    max-height: 58%;
-    flex-shrink: 5;
-
-    object-fit: cover;
-    border-radius: .5em .5em 0 0;
-}
-
-.grid-item>article {
-    flex-grow: 2;
-    height: fit-content;
-    min-height: 20%;
-
-    padding: .25em;
-
-    border: var(--color-primary) 1px solid;
-    border-top: 0px;
-    border-radius: 0 0 .5em .5em;
-}
-
-.grid-item>article>h3 {
-    margin: 0;
-}
-
-.grid-item>article>p {
-    height: calc(100% - 1.17em - .5em);
-
-    margin: 0;
-
-    overflow: hidden;
-}
-
-/* NOTE: alternate view of the portfolio */
-.portfolio-alt {
-    height: calc(100vh - 8.5em);
-    max-height: calc(100vh - 8.5em);
-    position: relative;
-
-    background: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)), var(--color-secondary);
-    background-blend-mode: darken;
-    border-radius: .5em;
-
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-
-    /* display: flex; */
-    flex-direction: row;
-
-    display: none;
-}
-
-.portfolio-alt>button {
-    position: absolute;
-
-    top: 1em;
-    left: 1em;
-}
-
-.portfolio-alt>img {
-    width: 40%;
-    max-height: 100%;
-    flex-shrink: 5;
-
-    object-fit: cover;
-    border-radius: .5em 0 0 .5em;
-}
-
-.portfolio-alt>article {
-    flex-grow: 2;
-    height: calc(100% - 2em);
-
-    padding: 1em;
-
-    border: var(--color-primary) 1px solid;
-    border-left: 0px;
-    border-radius: 0 .5em .5em 0;
-}
-
-.portfolio-alt>article>div>span {
-    background-color: #3f72af55;
-
-    padding: .2em .5em .2em .5em;
-
-    border: var(--color-primary) 1px solid;
-    border-radius: .74em;
-}
-
-.portfolio-alt>article>div>span:hover {
-    background-color: #3f72af99;
-
-    cursor: default;
-}
-
-
-.portfolio-alt>article>a {
-    color: var(--text-primary);
-}
-
-.portfolio-alt>article>a:hover {
-    cursor: pointer;
-}
-
 /* NOTE: contact me form */
 #flavor-alert {
     visibility: hidden;
@@ -256,10 +128,18 @@ main {
     transform: translate(-50%, 0);
 }
 
+#contact-me {
+    position: relative;
+    height: 90vh;
+}
+
 #contact-me div {
+    position: absolute;
     width: fit-content;
 
-    /* transform: translateY(800%); */
+    left: 50%;
+    transform: translate(-50%, 0%);
+    bottom: 0px;
 
     margin-top: auto;
     margin: auto;

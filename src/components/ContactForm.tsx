@@ -1,17 +1,16 @@
 import type React from 'react';
 import type { useState, useEffect, useRef, FormEvent } from 'react';
 
-import "../styles/ContactForm.css"
+import "../styles/contactForm.css"
 
 
 
-export default function Navbar() {
-
+export default function ContactForm(props: { alert: string }) {
 
     let onFormSubmit = (e: FormEvent) => {
         e.preventDefault()
 
-        const flavorDiv = document.getElementById("flavor-alert")!;
+        const flavorDiv = (document.querySelector(props.alert)! as HTMLElement);
 
         // show a hidden div
         flavorDiv.style.visibility = "unset";

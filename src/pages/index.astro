@@ -1,19 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
 import Navbar from "../components/Navbar";
 import Viewer from "../components/Viewer";
 import ContactForm from "../components/ContactForm";
+import Portfolio from "../components/Portfolio";
 
 import "../styles/style.css";
 import resumePath from "../resources/Resume.pdf";
-
-import imagePath1 from "../resources/worachat-sodsri-nCz_ZgnbtaE-unsplash.jpg";
-import imagePath2 from "../resources/lorenzo-herrera-p0j-mE6mGo4-unsplash.jpg";
-import imagePath3 from "../resources/zan-wGqz5YSqsfk-unsplash.jpg";
-import imagePath4 from "../resources/62a07b53139aec4c1fd07771_discord-logo.png";
-import imagePath5 from "../resources/randy-fath-G1yhU1Ej-9A-unsplash.jpg";
-import imagePath6 from "../resources/andres-urena-tsBropDpnwE-unsplash.jpg";
 ---
 
 <Layout title="My Portfolio">
@@ -31,8 +24,8 @@ import imagePath6 from "../resources/andres-urena-tsBropDpnwE-unsplash.jpg";
 		</section>
 
 		<!-- TODO: uncomment to see weird effect -->
-		<!-- <div id="hover-effect-blur"></div>
-        <div id="js-hover-effect"></div> -->
+		<div id="hover-effect-blur"></div>
+        <div id="js-hover-effect"></div>
 	</div>
 
 	<main>
@@ -74,83 +67,7 @@ import imagePath6 from "../resources/andres-urena-tsBropDpnwE-unsplash.jpg";
 		<!-- NOTE: a grid of all projects in my portfolio -->
 		<section id="portfolio" class="content">
 			<h2>Portfolio</h2>
-			<div class="portfolio-grid">
-				<div class="grid-item">
-					<img src={imagePath1} />
-					<article>
-						<h3>Twofish</h3>
-						<p>Final project for the Purdue CNIT 370 class</p>
-					</article>
-				</div>
-
-				<div class="grid-item">
-					<img src={imagePath2} />
-					<article>
-						<h3>EZpowershell</h3>
-						<p>
-							A pwsh module made to be a collection of small but
-							useful scripts for various Azure and admin tasks.
-						</p>
-					</article>
-				</div>
-
-				<div class="grid-item">
-					<img src={imagePath3} />
-					<article>
-						<h3>Mesh Pico</h3>
-						<p>
-							A small project designed to be used for development
-							of an IOT embedded device
-						</p>
-					</article>
-				</div>
-
-				<div class="grid-item">
-					<img src={imagePath4} />
-					<article>
-						<h3>et-manager-bot</h3>
-						<p>A discord enterprise integration bot</p>
-					</article>
-				</div>
-
-				<div class="grid-item">
-					<img src={imagePath5} />
-					<article>
-						<h3>Ultra Chess</h3>
-						<p>Chess game made in Python</p>
-					</article>
-				</div>
-
-				<div class="grid-item">
-					<img src={imagePath6} />
-					<article>
-						<h3>AlexaLiquidPixel</h3>
-						<p>
-							This is a project where I use my Liquid Pixel lights
-							and have them controlled by an Amazon Alexa
-						</p>
-					</article>
-				</div>
-			</div>
-			<div class="portfolio-alt">
-				<button id="js-exit-portfolio">&laquo</button>
-				<img src={imagePath1} />
-				<article>
-					<h3>Twofish</h3>
-					<div>
-						<span>encryption</span>
-						<span>javascript</span>
-						<span>typescript</span>
-						<span>astro</span>
-						<span>twofish</span>
-					</div>
-					<p>
-						This is a demo website built to show what the twofish
-						block cipher does to data.
-					</p>
-					<a href="https://twofish.ethanzeronik.dev" target="_blank">Live Demo</a>
-				</article>
-			</div>
+			<Portfolio client:load client:only/>
 		</section>
 
 		<span class="gutter"></span>
@@ -168,14 +85,22 @@ import imagePath6 from "../resources/andres-urena-tsBropDpnwE-unsplash.jpg";
 				hearing from you!
 			</p>
 
-			<ContactForm client:load client:only />
+			<ContactForm alert={"#flavor-alert"} client:load client:only />
 
 			<div>
-				<a href="https://github.com/ejzeronimo" target="_blank">Github</a>
+				<a href="https://github.com/ejzeronimo" target="_blank"
+					>Github</a
+				>
 				|
-				<a href="https://www.linkedin.com/in/ethanzeronik/" target="_blank">LinkedIn</a>
+				<a
+					href="https://www.linkedin.com/in/ethanzeronik/"
+					target="_blank">LinkedIn</a
+				>
 				|
-				<a href="https://discordapp.com/users/210578280485617665" target="_blank">Discord</a>
+				<a
+					href="https://discordapp.com/users/210578280485617665"
+					target="_blank">Discord</a
+				>
 				|
 				<a href="mailto:ejzeronik@gmail.com" target="_blank">Email</a>
 			</div>
@@ -184,31 +109,7 @@ import imagePath6 from "../resources/andres-urena-tsBropDpnwE-unsplash.jpg";
 </Layout>
 
 <script>
-	// NOTE: button to smoothly animate to tag
-	var gridItems = document.getElementsByClassName("grid-item");
-	var altBackButton = document.getElementById("js-exit-portfolio");
-
-	function toggleAltView() {
-		document.getElementsByClassName("portfolio-grid")[0].style.display =
-			"none";
-		document.getElementsByClassName("portfolio-alt")[0].style.display =
-			"flex";
-	}
-
-	function toggleGridView() {
-		document.getElementsByClassName("portfolio-grid")[0].style.display =
-			"grid";
-		document.getElementsByClassName("portfolio-alt")[0].style.display =
-			"none";
-	}
-
-	for (let i = 0; i < gridItems.length; i++) {
-		gridItems[i].addEventListener("click", toggleAltView);
-	}
-
-	altBackButton!.addEventListener("click", toggleGridView);
-
-	// NOTE: the landing page effect
+	// NOTE: the landing page effect (optional)
 	const blob = document.getElementById("js-hover-effect");
 
 	window.onpointermove = (event) => {
