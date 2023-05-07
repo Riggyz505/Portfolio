@@ -6,10 +6,8 @@ import react from "@astrojs/react";
 export default defineConfig({
   integrations: [react()],
   vite: {
-    build: {
-      rollupOptions: {
-        plugins: [css()],
-      },
-    },
+    ssr: {
+      noExternal: ['open-props'],
+    }
   },
 });
