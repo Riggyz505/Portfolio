@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 
 import "../styles/navbar.css"
 
+
 function navigateTo(target: string) {
     document.getElementById(target)!.scrollIntoView({
         behavior: "smooth",

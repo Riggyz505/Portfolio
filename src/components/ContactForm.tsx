@@ -4,7 +4,6 @@ import type { useState, useEffect, useRef, FormEvent } from 'react';
 import "../styles/contactForm.css"
 
 
-
 export default function ContactForm(props: { alert: string }) {
 
     let onFormSubmit = (e: FormEvent) => {

@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Topic from './Topic';
+
 import "../styles/portfolioCard.css"
 
 

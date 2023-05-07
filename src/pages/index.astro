@@ -14,7 +14,7 @@ import resumePath from "../resources/Resume.pdf";
 	<div id="flavor-alert">Thanks for the message 🤩</div>
 
 	<!-- NOTE: the special titlebar asset that we will be making -->
-	<Navbar client:load client:only />
+	<Navbar client:only="react" client:only />
 
 	<!-- NOTE: the landing page -->
 	<div id="landing-page">
@@ -59,7 +59,7 @@ import resumePath from "../resources/Resume.pdf";
 		<!-- NOTE: a page for browsing the resume, will make better in the future -->
 		<section id="resume" class="content">
 			<h2>Resume</h2>
-			<Viewer src={resumePath} client:load />
+			<Viewer src={resumePath} client:only="react" />
 		</section>
 
 		<span class="gutter"></span>
@@ -67,7 +67,7 @@ import resumePath from "../resources/Resume.pdf";
 		<!-- NOTE: a grid of all projects in my portfolio -->
 		<section id="portfolio" class="content">
 			<h2>Portfolio</h2>
-			<Portfolio client:load client:only/>
+			<Portfolio client:only="react" client:only/>
 		</section>
 
 		<span class="gutter"></span>
@@ -85,7 +85,7 @@ import resumePath from "../resources/Resume.pdf";
 				hearing from you!
 			</p>
 
-			<ContactForm alert={"#flavor-alert"} client:load client:only />
+			<ContactForm alert={"#flavor-alert"} client:only="react" client:only />
 
 			<div>
 				<a href="https://github.com/ejzeronimo" target="_blank"
