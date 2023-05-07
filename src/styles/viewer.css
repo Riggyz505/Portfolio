@@ -1,0 +1,9 @@
+/* NOTE: the resume page */
+iframe {
+    aspect-ratio: 0.772727273;
+    width: 9in;
+
+    margin: auto;
+
+    display: block;
+}

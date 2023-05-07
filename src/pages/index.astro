@@ -1,0 +1,129 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar";
+import Viewer from "../components/Viewer";
+import ContactForm from "../components/ContactForm";
+import Portfolio from "../components/Portfolio";
+
+import "../styles/style.css";
+import resumePath from "../resources/Resume.pdf";
+---
+
+<Layout title="My Portfolio">
+	<!-- NOTE: the submit flavor alert -->
+	<div id="flavor-alert">Thanks for the message 🤩</div>
+
+	<!-- NOTE: the special titlebar asset that we will be making -->
+	<Navbar client:load client:only />
+
+	<!-- NOTE: the landing page -->
+	<div id="landing-page">
+		<section id="landing-title">
+			<h1>Ethan Zeronik</h1>
+			<h2>Software Engineer</h2>
+		</section>
+
+		<!-- TODO: uncomment to see weird effect -->
+		<div id="hover-effect-blur"></div>
+        <div id="js-hover-effect"></div>
+	</div>
+
+	<main>
+		<!-- NOTE: a simple about me page -->
+		<section id="about-me" class="content">
+			<h2>About Me</h2>
+			<p>
+				Hi there 🤝 my name is Ethan Zeronik. Always learning, I love to
+				try exciting new technologies. Whether it is a new
+				microcontroller or a backend framework that provides better
+				performance, I am always striving to learn about the next big
+				thing. I like to spend my free time assembling Gunpla models or
+				3d printing various odds and ends. I am passionate about always
+				doing the best I can, both in professional and personal
+				pursuits.
+			</p>
+			<h3>Skills</h3>
+			<p>Typescript, Javascript, Git, C, C#, Powershell, SQL</p>
+			<h3>Education</h3>
+			<p>
+				<strong>Purdue University:</strong> 2019-2023, Bachelors in CNIT
+				with a general specification
+				<br />
+				<br />
+				<strong>Heritage Christian:</strong> 2006-2019, Highschool diploma
+			</p>
+		</section>
+
+		<span class="gutter"></span>
+
+		<!-- NOTE: a page for browsing the resume, will make better in the future -->
+		<section id="resume" class="content">
+			<h2>Resume</h2>
+			<Viewer src={resumePath} client:load />
+		</section>
+
+		<span class="gutter"></span>
+
+		<!-- NOTE: a grid of all projects in my portfolio -->
+		<section id="portfolio" class="content">
+			<h2>Portfolio</h2>
+			<Portfolio client:load client:only/>
+		</section>
+
+		<span class="gutter"></span>
+
+		<!-- NOTE: the "footer" of the site -->
+		<section id="contact-me" class="content">
+			<h2>Contact Me</h2>
+			<p>
+				Hey there! Thanks for stopping by my website! 👋 I'm super
+				excited to share my work with you. If you have any questions,
+				comments, or just want to chat, feel free to drop me a line
+				using the contact form below. I'll do my best to get back to you
+				as soon as possible. You can also connect with me on social
+				media through the links listed on this site. Looking forward to
+				hearing from you!
+			</p>
+
+			<ContactForm alert={"#flavor-alert"} client:load client:only />
+
+			<div>
+				<a href="https://github.com/ejzeronimo" target="_blank"
+					>Github</a
+				>
+				|
+				<a
+					href="https://www.linkedin.com/in/ethanzeronik/"
+					target="_blank">LinkedIn</a
+				>
+				|
+				<a
+					href="https://discordapp.com/users/210578280485617665"
+					target="_blank">Discord</a
+				>
+				|
+				<a href="mailto:ejzeronik@gmail.com" target="_blank">Email</a>
+			</div>
+		</section>
+	</main>
+</Layout>
+
+<script>
+	// NOTE: the landing page effect (optional)
+	const blob = document.getElementById("js-hover-effect");
+
+	window.onpointermove = (event) => {
+		const { clientX, clientY } = event;
+
+		blob!.animate(
+			{
+				left: `${clientX + window.scrollX}px`,
+				top: `${clientY + window.scrollY}px`,
+				backgroundPosition: `${-clientX + window.scrollX}px ${
+					-clientY + window.scrollY
+				}px`,
+			},
+			{ duration: 1000, fill: "forwards" }
+		);
+	};
+</script>
