@@ -12,7 +12,7 @@ export default function LandingEffectController() {
     useEffect(() => {
         let scene = new THREE.Scene();
         let camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 1000);
-        let renderer = new THREE.WebGLRenderer({ canvas: (selfRef.current! as HTMLCanvasElement) });
+        let renderer = new THREE.WebGLRenderer({ canvas: (selfRef.current! as HTMLCanvasElement), alpha: true });
         
 
         camera.position.z = 1;
