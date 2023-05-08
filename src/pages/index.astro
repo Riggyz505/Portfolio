@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar";
 import Viewer from "../components/Viewer";
 import ContactForm from "../components/ContactForm";
 import Portfolio from "../components/Portfolio";
+import LandingEffectController from "../components/LandingEffectController";
 
 import "../styles/style.css";
 import resumePath from "../resources/Resume.pdf";
@@ -14,7 +15,7 @@ import resumePath from "../resources/Resume.pdf";
 	<div id="flavor-alert">Thanks for the message 🤩</div>
 
 	<!-- NOTE: the special titlebar asset that we will be making -->
-	<Navbar client:only="react" client:only />
+	<Navbar client:only="react"/>
 
 	<!-- NOTE: the landing page -->
 	<div id="landing-page">
@@ -23,9 +24,8 @@ import resumePath from "../resources/Resume.pdf";
 			<h2>Software Engineer</h2>
 		</section>
 
-		<!-- TODO: uncomment to see weird effect -->
-		<div id="hover-effect-blur"></div>
-        <div id="js-hover-effect"></div>
+		<!-- NOTE: applies a random effect to the landing page -->
+		<LandingEffectController client:only="react"/>
 	</div>
 
 	<main>
@@ -67,7 +67,7 @@ import resumePath from "../resources/Resume.pdf";
 		<!-- NOTE: a grid of all projects in my portfolio -->
 		<section id="portfolio" class="content">
 			<h2>Portfolio</h2>
-			<Portfolio client:only="react" client:only/>
+			<Portfolio client:only="react"/>
 		</section>
 
 		<span class="gutter"></span>
@@ -85,7 +85,7 @@ import resumePath from "../resources/Resume.pdf";
 				hearing from you!
 			</p>
 
-			<ContactForm alert={"#flavor-alert"} client:only="react" client:only />
+			<ContactForm alert={"#flavor-alert"} client:only="react"/>
 
 			<div>
 				<a href="https://github.com/ejzeronimo" target="_blank"
@@ -107,23 +107,3 @@ import resumePath from "../resources/Resume.pdf";
 		</section>
 	</main>
 </Layout>
-
-<script>
-	// NOTE: the landing page effect (optional)
-	const blob = document.getElementById("js-hover-effect");
-
-	window.onpointermove = (event) => {
-		const { clientX, clientY } = event;
-
-		blob!.animate(
-			{
-				left: `${clientX + window.scrollX}px`,
-				top: `${clientY + window.scrollY}px`,
-				backgroundPosition: `${-clientX + window.scrollX}px ${
-					-clientY + window.scrollY
-				}px`,
-			},
-			{ duration: 1000, fill: "forwards" }
-		);
-	};
-</script>
