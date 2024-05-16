@@ -165,9 +165,7 @@ export default function Navbar() {
         {/* show this on the landing page */}
         <div id="landing-nav" style={isFloating ? { opacity: 0, visibility: "hidden" } : { opacity: 1, visibility: "visible" }}>
             <button className="js-nav-button" onClick={() => navigateTo("about-me")}>About Me</button>
-            <button className="js-nav-button" onClick={() => navigateTo("resume")}>Resume</button>
             <button className="js-nav-button" onClick={() => navigateTo("portfolio")}>Portfolio</button>
-            <button className="js-nav-button" onClick={() => navigateTo("contact-me")}>Contact</button>
         </div>
 
         {/* show this everywhere else */}
